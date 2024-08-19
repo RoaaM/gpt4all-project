@@ -60,5 +60,5 @@ streamlit run chat_app.py
 
 ```sh
 python3 api.py # mac os, ubuntu
-python api.py
+python api.py # windows 
 ```
