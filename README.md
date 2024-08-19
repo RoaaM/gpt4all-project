@@ -4,6 +4,9 @@
 
 Dean is an AI-powered code assistant designed to help with general coding questions, as well as provide specialized assistance in data science and AI. Dean uses the GPT-4 All model to generate responses and was taught by Roaa, a professional in these fields who is inspired by Dean Winchester from the Supernatural series.
 
+![Dean Assistant](./chatbot.png)
+
+
 ## Features
 
 - **AI-Powered Responses**: Utilizes the GPT-4 All model to provide intelligent and context-aware responses.
