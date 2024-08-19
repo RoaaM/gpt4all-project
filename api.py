@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify
 from gpt4all import GPT4All
 
@@ -8,12 +9,17 @@ model = GPT4All("Meta-Llama-3-8B-Instruct.Q4_0.gguf")
 
 @app.route('/generate', methods=['POST'])
 def generate():
-    data = request.json
-    user_input = data.get('input', '')
-    prompt = create_prompt(user_input)
-    with model.chat_session():
-        response = model.generate(prompt, max_tokens=1024)
-    return jsonify({'response': response})
+    try:
+        data = request.json
+        user_input = data.get('input', '')
+        if not user_input:
+            return jsonify({'error': 'No input provided'}), 400
+        prompt = create_prompt(user_input)
+        with model.chat_session():
+            response = model.generate(prompt, max_tokens=1024)
+        return jsonify({'response': response})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 def create_prompt(user_input):
     prompt_instructions = (
@@ -27,4 +33,5 @@ def create_prompt(user_input):
     return prompt_instructions + user_input
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000)
+    port = int(os.environ.get('PORT', 8000))  # Use the PORT environment variable
+    app.run(host='0.0.0.0', port=port)
