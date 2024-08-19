@@ -27,8 +27,8 @@ Ensure you have the following installed:
 1. **Clone the Repository**:
 
     ```sh
-    git clone https://github.com/your-username/your-repository.git
-    cd your-repository
+    git clone https://github.com/RoaaM/gpt4all-project.git
+    cd gpt4all-project
     ```
 
 2. **Create and Activate a Virtual Environment** (optional but recommended):
@@ -46,7 +46,7 @@ Ensure you have the following installed:
 
 ### Configuration
 
-The application uses the GPT-4 All model. Ensure that the model file `Meta-Llama-3-8B-Instruct.Q4_0.gguf` is available and correctly referenced in the code. If not, adjust the path or model name in the `chat_app.py` file accordingly.
+The application uses the GPT-4 All package. Ensure that the model file `Meta-Llama-3-8B-Instruct.Q4_0.gguf` is available and correctly referenced in the code. If not, adjust the path or model name in the `chat_app.py` file accordingly.
 
 ### Running the Application
 
@@ -54,3 +54,11 @@ To start the Streamlit application, run the following command:
 
 ```sh
 streamlit run chat_app.py
+```
+
+### Runing the API
+
+```sh
+python3 api.py # mac os, ubuntu
+python api.py
+```
